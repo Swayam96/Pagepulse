@@ -15,5 +15,6 @@ COPY . .
 # 5. Expose the Port Render Uses
 ENV PORT 10000
 
-# 6. Start Command
-CMD ["streamlit", "run", "app.py", "--server.port=$PORT", "--server.address=0.0.0.0"]
+# 6. Start Command with shell form to substitute PORT variable correctly
+CMD bash -c "streamlit run app.py --server.port=${PORT} --server.address=0.0.0.0"
+
